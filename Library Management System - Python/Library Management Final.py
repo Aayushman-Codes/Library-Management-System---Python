@@ -3,7 +3,6 @@ import tkinter as tk
 from tkinter import messagebox, ttk
 from datetime import datetime, timedelta
 
-# Constants
 BOOKS_FILE = "books.csv"
 STUDENTS_FILE = "students.csv"
 LOGS_FILE = "logs.csv"
@@ -11,7 +10,6 @@ BASE_PENALTY_RATE = 1
 MAX_PENALTY = 50
 GRACE_PERIOD = 2
 
-# Helper functions
 def load_csv(file_name):
     try:
         with open(file_name, mode='r') as file:
@@ -25,7 +23,6 @@ def save_csv(file_name, fieldnames, data):
         writer.writeheader()
         writer.writerows(data)
 
-# Core Classes
 class Book:
     def __init__(self, book_id, title, author, available_copies):
         self.book_id = book_id
@@ -153,8 +150,7 @@ class Librarian:
         save_csv(BOOKS_FILE, ["book_id", "title", "author", "available_copies"], [b.to_csv() for b in self.books])
         save_csv(STUDENTS_FILE, ["student_id", "name", "borrowed_books"], [s.to_csv() for s in self.students])
 
-# GUI and Event Handlers - Fixed sections follow...
-# GUI and Event Handlers - Remaining Sections
+# GUI and Event Handlers
 import tkinter as tk
 from tkinter import messagebox, ttk
 
